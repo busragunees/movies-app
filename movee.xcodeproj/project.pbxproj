@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B57891DBA976CCAE5FC9996 /* Pods_movee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E48C844952F25F2737960228 /* Pods_movee.framework */; };
 		99599BA0292F8CCF0066BD82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99599B9F292F8CCF0066BD82 /* AppDelegate.swift */; };
 		99599BA2292F8CCF0066BD82 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99599BA1292F8CCF0066BD82 /* SceneDelegate.swift */; };
 		99599BA4292F8CCF0066BD82 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99599BA3292F8CCF0066BD82 /* ViewController.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		46110326DAF3DD8A43784468 /* Pods-movee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-movee.release.xcconfig"; path = "Target Support Files/Pods-movee/Pods-movee.release.xcconfig"; sourceTree = "<group>"; };
 		99599B9C292F8CCF0066BD82 /* movee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = movee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99599B9F292F8CCF0066BD82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99599BA1292F8CCF0066BD82 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +53,8 @@
 		99599BBF292F8CD20066BD82 /* moveeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = moveeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		99599BC3292F8CD20066BD82 /* moveeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moveeUITests.swift; sourceTree = "<group>"; };
 		99599BC5292F8CD20066BD82 /* moveeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moveeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C1557D871A1AE734C3AAC423 /* Pods-movee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-movee.debug.xcconfig"; path = "Target Support Files/Pods-movee/Pods-movee.debug.xcconfig"; sourceTree = "<group>"; };
+		E48C844952F25F2737960228 /* Pods_movee.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_movee.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B57891DBA976CCAE5FC9996 /* Pods_movee.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +83,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D8B5A3088B2678895D22DFB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C1557D871A1AE734C3AAC423 /* Pods-movee.debug.xcconfig */,
+				46110326DAF3DD8A43784468 /* Pods-movee.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		99599B93292F8CCF0066BD82 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +99,8 @@
 				99599BB8292F8CD20066BD82 /* moveeTests */,
 				99599BC2292F8CD20066BD82 /* moveeUITests */,
 				99599B9D292F8CCF0066BD82 /* Products */,
+				4D8B5A3088B2678895D22DFB /* Pods */,
+				D6F877E8AADE524061031995 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -130,6 +146,14 @@
 			path = moveeUITests;
 			sourceTree = "<group>";
 		};
+		D6F877E8AADE524061031995 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E48C844952F25F2737960228 /* Pods_movee.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -137,9 +161,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 99599BC9292F8CD20066BD82 /* Build configuration list for PBXNativeTarget "movee" */;
 			buildPhases = (
+				D152A81323C429F33ADB5B5A /* [CP] Check Pods Manifest.lock */,
 				99599B98292F8CCF0066BD82 /* Sources */,
 				99599B99292F8CCF0066BD82 /* Frameworks */,
 				99599B9A292F8CCF0066BD82 /* Resources */,
+				3049D7863DFD773A89C99554 /* [CP] Embed Pods Frameworks */,
+				99F53C8A292FABAC00EE79DB /* Swiftlint Run Script */,
 			);
 			buildRules = (
 			);
@@ -255,6 +282,66 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3049D7863DFD773A89C99554 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-movee/Pods-movee-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-movee/Pods-movee-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-movee/Pods-movee-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		99F53C8A292FABAC00EE79DB /* Swiftlint Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Swiftlint Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\" autocorrect --strict\n\"${PODS_ROOT}/SwiftLint/swiftlint\" lint\n";
+		};
+		D152A81323C429F33ADB5B5A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-movee-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		99599B98292F8CCF0066BD82 /* Sources */ = {
@@ -436,6 +523,7 @@
 		};
 		99599BCA292F8CD20066BD82 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C1557D871A1AE734C3AAC423 /* Pods-movee.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -463,6 +551,7 @@
 		};
 		99599BCB292F8CD20066BD82 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 46110326DAF3DD8A43784468 /* Pods-movee.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
