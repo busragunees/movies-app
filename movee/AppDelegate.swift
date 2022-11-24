@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  movies
+//  movee
 //
-//  Created by Gunes, Busra on 23.11.2022.
+//  Created by Gunes, Busra on 24.11.2022.
 //
 
 import UIKit
@@ -41,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
         */
-        let container = NSPersistentContainer(name: "movies")
+        let container = NSPersistentContainer(name: "movee")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.

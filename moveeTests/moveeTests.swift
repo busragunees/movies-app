@@ -1,14 +1,14 @@
 //
-//  moviesTests.swift
-//  moviesTests
+//  moveeTests.swift
+//  moveeTests
 //
-//  Created by Gunes, Busra on 23.11.2022.
+//  Created by Gunes, Busra on 24.11.2022.
 //
 
 import XCTest
-@testable import movies
+@testable import movee
 
-final class moviesTests: XCTestCase {
+class moveeTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

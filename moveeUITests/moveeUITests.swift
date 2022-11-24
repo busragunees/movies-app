@@ -1,13 +1,13 @@
 //
-//  moviesUITests.swift
-//  moviesUITests
+//  moveeUITests.swift
+//  moveeUITests
 //
-//  Created by Gunes, Busra on 23.11.2022.
+//  Created by Gunes, Busra on 24.11.2022.
 //
 
 import XCTest
 
-final class moviesUITests: XCTestCase {
+class moveeUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
