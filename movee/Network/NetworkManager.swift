@@ -11,28 +11,19 @@ import Alamofire
 class NetworkManager {
     typealias OnSuccess<T: Codable> = ((T?) -> Void)?
     static var shared = NetworkManager()
-    func request<T: Decodable>(url: ServiceURL,
-                               method: HTTPMethod,
-                               parameters: Parameters?,
-                               encoding: ParameterEncoding,
+    func request<T: Decodable>(config: RequestConfig,
                                responseObjectType: T.Type,
-                               success: @escaping (T) -> Void,
-                               failure: @escaping (AFError) -> Void) {
-        let requestURL = Api.baseURL + url.rawValue + "?" + Api.apiKeyParam
+                               completion: @escaping (Result<T, AFError>) -> Void) {
+        let requestURL = Api.baseURL + config.url.rawValue + "?" + Api.apiKeyParam
         let request = AF.request(requestURL,
-                                 method: method,
-                                 parameters: parameters,
-                                 encoding: encoding,
+                                 method: config.method,
+                                 parameters: config.parameters,
+                                 encoding: config.encoding,
                                  headers: nil)
         request
             .validate()
             .responseDecodable(of: T.self) { response in
-                switch response.result {
-                    case .success(let data):
-                    success(data)
-                    case .failure(let error):
-                    failure(error)
-                }
+                completion(response.result)
             }
     }
 }
