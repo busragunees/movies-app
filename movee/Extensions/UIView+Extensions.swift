@@ -76,6 +76,7 @@ extension UIView {
             layer.shadowOpacity = newValue
         }
     }
+
     func visiblity(gone: Bool, dimension: CGFloat = 0.0, attribute: NSLayoutConstraint.Attribute = .height) {
         if  let constraint = (self.constraints.filter { $0.firstAttribute == attribute }.first) {
             constraint.constant = gone ? 0.0 : dimension
@@ -85,21 +86,17 @@ extension UIView {
     }
     func showAnimation(_ completionBlock: @escaping () -> Void) {
         isUserInteractionEnabled = false
-        UIView.animate(withDuration: 0.1,
-                       delay: 0,
-                       options: .curveLinear,
-                       animations: { [weak self] in
-            self?.transform = CGAffineTransform.init(scaleX: 0.85, y: 0.85)
-            }) { _ in
+        UIView.animate(withDuration: 0.1, delay: 0, options: .curveLinear) {
+            self.transform = CGAffineTransform.init(scaleX: 0.85, y: 0.85) // animasyon
+        } completion: { _ in
             UIView.animate(withDuration: 0.1,
                            delay: 0,
-                           options: .curveLinear,
-                           animations: { [weak self] in
+                           options: .curveLinear) { [weak self] in
                 self?.transform = CGAffineTransform.init(scaleX: 1, y: 1)
-            }) { [weak self] _ in
-                self?.isUserInteractionEnabled = true
-                completionBlock()
-            }
+                           } completion: { _ in
+                               self.isUserInteractionEnabled = true
+                               completionBlock()
+                           }
         }
     }
 }
