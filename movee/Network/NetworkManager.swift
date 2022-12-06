@@ -9,8 +9,8 @@ import Foundation
 import Alamofire
 
 class NetworkManager {
-    typealias OnSuccess<T: Codable> = ((T?) -> Void)?
     static var shared = NetworkManager()
+
     func request<T: Decodable>(config: RequestConfig,
                                responseObjectType: T.Type,
                                completion: @escaping (Result<T, AFError>) -> Void) {
@@ -24,6 +24,7 @@ class NetworkManager {
             .validate()
             .responseDecodable(of: T.self) { response in
                 completion(response.result)
+                print("response.result", response.result)
             }
     }
 }

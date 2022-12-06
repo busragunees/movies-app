@@ -8,13 +8,12 @@
 import Foundation
 import Alamofire
 
-protocol PopulerMoviesViewModelProtocol {
-    func fetchPopulerMovies(items: [PopulerMovies]?)
-}
+public typealias VoidClosure = (() -> Void)
 
 class PopulerMoviesViewModel {
-    var populerMovies = [PopulerMovies]()
-    var viewDelegate: PopulerMoviesViewModelProtocol?
+    var populerMovies = [PopulerMovies?]()
+    var didSuccessFetchData: VoidClosure?
+
     func fetchPopulerMovies() {
         NetworkManager.shared.request(config:
             .init(
@@ -24,8 +23,8 @@ class PopulerMoviesViewModel {
                 responseObjectType: PopulerMoviesResponseModel.self) { [weak self] response in
             switch response {
                 case .success(let data):
-                self?.viewDelegate?.fetchPopulerMovies(items: data.results)
-                print("data", data.results as Any)
+                self?.populerMovies = data.results ?? []
+                self?.didSuccessFetchData?()
                 case .failure(let error):
                 print("fetch populer movies error", error)
             }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class MoviesTableViewCell: UITableViewCell {
     @IBOutlet private weak var movieImage: UIImageView!
@@ -22,8 +23,20 @@ class MoviesTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
 
-    private func setItem(item: PopulerMovies) {
+    func setItem(item: PopulerMovies) {
         self.movieNameLabel.text = item.originalTitle
-        self.movieScoreLabel.text = "\(item.voteAverage ?? 0)"
+        self.movieScoreLabel.text = String(format: "%.1f", item.voteAverage ?? 0)
+        self.movieDateLabel.text = item.releaseDate
+        guard let itemURL = item.posterPath else {return}
+        let imageURL = String(format: "%@%@%@", Api.imageBaseURL, Api.imagePATH, itemURL)
+        self.movieImage.setImage(imageURL)
+        if let genreIDS = item.genreIDS {
+           let genreTypes: [String] = genreIDS.map { genreId in
+               GenreManager.sharedInstance.genreTypes.filter {
+                   $0?.id == genreId
+               }.first??.name ?? ""
+            }
+            self.movieGenreLabel.text = genreTypes.joined(separator: " ,")
+        }
     }
 }
