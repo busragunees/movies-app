@@ -7,4 +7,5 @@ target 'movee' do
 
   pod 'Alamofire', '~> 5.6'
   pod 'SwiftLint', '~> 0.50'
+  pod 'Kingfisher', '~> 7.4'
 end
