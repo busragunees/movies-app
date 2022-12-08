@@ -9,13 +9,16 @@ import UIKit
 
 class MoviesViewController: UIViewController {
     @IBOutlet private weak var populerMoviesTableView: UITableView!
+    @IBOutlet private weak var tableViewHeightConstraint: NSLayoutConstraint!
     private let populerMoviesCellReuseIdentifier = "moviesTableViewCell"
     var viewModel: PopulerMoviesViewModel = { () in
-                .init()
+            .init()
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.barTintColor = .blue
+        self.navigationController?.navigationBar.largeContentTitle = "Popular movies"
         GenreManager.sharedInstance.fetchGenreTypes()
         viewModel.fetchPopulerMovies()
         setupUI()
@@ -30,11 +33,11 @@ class MoviesViewController: UIViewController {
         self.populerMoviesTableView.register(.init(nibName: "MoviesTableViewCell", bundle: nil), forCellReuseIdentifier: populerMoviesCellReuseIdentifier)
     }
     private func subscribeViewModelEvents() {
-            viewModel.didSuccessFetchData = { [weak self] in
-                guard let self = self else { return }
-                self.populerMoviesTableView.reloadData()
-            }
+        viewModel.didSuccessFetchData = { [weak self] in
+            guard let self = self else { return }
+            self.populerMoviesTableView.reloadData()
         }
+    }
 }
 
 extension MoviesViewController: UITableViewDelegate, UITableViewDataSource {
